@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: local
+    include: datasource, openapi
+server:
+  port: 8080

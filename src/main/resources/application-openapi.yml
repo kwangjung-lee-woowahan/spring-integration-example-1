@@ -1,0 +1,4 @@
+springdoc:
+  packages-to-scan: org.example.controller
+  swagger-ui:
+    path: /swagger-ui.html
