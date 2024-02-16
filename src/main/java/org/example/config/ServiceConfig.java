@@ -92,18 +92,19 @@ public class ServiceConfig {
     return new PublishSubscribeChannel(eventTaskExecutor);
   }
 
-  @PostConstruct
-  public void registerEventChannels() {
-    // 경로 찾기
-    URL url = ClasspathHelper.forClass(Event.class);
-    // 스캐너 등록
-    ConfigurationBuilder builder = new ConfigurationBuilder()
-        .setUrls(url)
-        .setScanners(Scanners.SubTypes);
-    // Reflections 객체 생성
-    Reflections reflections = new Reflections(builder);
-
-    Set<Class<? extends Event>> subTypes = reflections.getSubTypesOf(Event.class);
-
-  }
+//
+//  @PostConstruct
+//  public void registerEventChannels() {
+//    // 경로 찾기
+//    URL url = ClasspathHelper.forClass(Event.class);
+//    // 스캐너 등록
+//    ConfigurationBuilder builder = new ConfigurationBuilder()
+//        .setUrls(url)
+//        .setScanners(Scanners.SubTypes);
+//    // Reflections 객체 생성
+//    Reflections reflections = new Reflections(builder);
+//
+//    Set<Class<? extends Event>> subTypes = reflections.getSubTypesOf(Event.class);
+//
+//  }
 }

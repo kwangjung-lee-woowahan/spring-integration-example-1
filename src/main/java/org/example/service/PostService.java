@@ -28,6 +28,7 @@ public class PostService {
     System.out.println("[PostService] CreatePostCommand");
     Post post = Post.newOne(command.getCategoryId(), command.getContent());
 
+    // 후처리를 위해
     messagePublisher.publish(new PostCreatedEvent(post.getCategoryId()));
     Post saved = postRepository.save(post);
 
@@ -40,6 +41,7 @@ public class PostService {
     Post post = postRepository.getReferenceById(command.getId());
 
     post.delete();
+    // 후처리를 위해.
     messagePublisher.publish(new PostDeletedEvent(post.getCategoryId()));
     postRepository.delete(post);
   }
